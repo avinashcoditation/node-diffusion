@@ -6,31 +6,31 @@ import {
   Regex,
   TextCursorInput,
   View,
-} from "lucide-react";
-import { useReactFlow } from "reactflow";
+} from 'lucide-react'
+import { useReactFlow } from 'reactflow'
 
 export type Bar = {
-  onCreateNode: (newNode: { type: string; data: any; position: any }) => void;
-};
+  onCreateNode: (newNode: { type: string; data: any; position: any }) => void
+}
 
 export function Bar({ onCreateNode }: Bar) {
-  const flow = useReactFlow();
+  const flow = useReactFlow()
 
   return (
-    <div className="absolute left-[15px] top-[4.75rem] bg-neutral-800 rounded flex flex-col overflow-hidden">
+    <div className=' bg-gray-600 rounded-md flex flex-col overflow-hidden items-center'>
       <Button
         onClick={() =>
           onCreateNode({
-            type: "Image",
+            type: 'Image',
             data: {
               input: {
-                init: "",
-                prompt: "",
+                init: '',
+                prompt: '',
                 steps: 30,
                 cfg_scale: 7,
               },
               output: {
-                image: "",
+                image: '',
               },
             },
             position: flow.project({
@@ -45,16 +45,16 @@ export function Bar({ onCreateNode }: Bar) {
       <Button
         onClick={() =>
           onCreateNode({
-            type: "Transformer",
+            type: 'Transformer',
             data: {
               input: {
-                prompt: "",
+                prompt: '',
                 temperature: 0,
                 top_p: 0,
                 frequency_penalty: 0,
               },
               output: {
-                prediction: "",
+                prediction: '',
               },
             },
             position: flow.project({
@@ -69,7 +69,7 @@ export function Bar({ onCreateNode }: Bar) {
       <Button
         onClick={() =>
           onCreateNode({
-            type: "RandomNumber",
+            type: 'RandomNumber',
             data: {
               input: {
                 min: 0,
@@ -91,14 +91,14 @@ export function Bar({ onCreateNode }: Bar) {
       <Button
         onClick={() =>
           onCreateNode({
-            type: "Concat",
+            type: 'Concat',
             data: {
               input: {
-                first: "",
-                second: "",
+                first: '',
+                second: '',
               },
               output: {
-                final: "",
+                final: '',
               },
             },
             position: flow.project({
@@ -113,15 +113,15 @@ export function Bar({ onCreateNode }: Bar) {
       <Button
         onClick={() =>
           onCreateNode({
-            type: "RegexReplace",
+            type: 'RegexReplace',
             data: {
               input: {
-                expression: "",
-                replacement: "",
-                text: "",
+                expression: '',
+                replacement: '',
+                text: '',
               },
               output: {
-                final: "",
+                final: '',
               },
             },
             position: flow.project({
@@ -136,11 +136,11 @@ export function Bar({ onCreateNode }: Bar) {
       <Button
         onClick={() =>
           onCreateNode({
-            type: "LoadImage",
+            type: 'LoadImage',
             data: {
               input: {},
               output: {
-                image: "",
+                image: '',
               },
             },
             position: flow.project({
@@ -155,13 +155,13 @@ export function Bar({ onCreateNode }: Bar) {
       <Button
         onClick={() =>
           onCreateNode({
-            type: "Interrogate",
+            type: 'Interrogate',
             data: {
               input: {
-                image: "",
+                image: '',
               },
               output: {
-                prompt: "",
+                prompt: '',
               },
             },
             position: flow.project({
@@ -174,7 +174,7 @@ export function Bar({ onCreateNode }: Bar) {
         <View size={18} strokeWidth={2} />
       </Button>
     </div>
-  );
+  )
 }
 
 function Button({
@@ -182,18 +182,18 @@ function Button({
   active,
   onClick,
 }: {
-  children: React.ReactNode;
-  active?: boolean;
-  onClick?: () => void;
+  children: React.ReactNode
+  active?: boolean
+  onClick?: () => void
 }) {
   return (
     <button
       className={`p-2 hover:bg-white/10 active:bg-white/20 duration-200 border-t border-white/10 first-of-type:border-t-transparent ${
-        active && "bg-black/10 text-indigo-400"
+        active && 'bg-black/10 text-indigo-400'
       }`}
       onClick={onClick ?? undefined}
     >
       {children}
     </button>
-  );
+  )
 }
